@@ -20,7 +20,7 @@ describe('Signup', () => {
         const sut = new SignUpController()
         const httpRequest = {
             body: {
-                email: 'any_email@mail.com',
+                name: 'any',
                 password: "any_password",
                 passwordConfirmation: "any_password"
             }
