@@ -7,6 +7,18 @@
     "test": "jest --passWithNoTests",
     "test:staged": "jest --passWithNoTests"
   },
+  "husky": {
+  "hooks": {
+    "pre-commit": "lint-staged"
+}
+ },
+ "lint-staged":{
+   "src/**/*.ts":[
+     "eslint --fix",
+     "npm run test:staged"
+  ]
+ },
+
   "keywords": [],
   "author": "",
   "license": "ISC",
