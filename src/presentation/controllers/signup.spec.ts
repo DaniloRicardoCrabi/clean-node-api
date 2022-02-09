@@ -1,3 +1,4 @@
+import { HttpResponse } from '../protocols/http'
 import { SignUpController } from './signup'
 
 describe('Signup', () => {
@@ -23,7 +24,7 @@ describe('Signup', () => {
                 passwordConfirmation: "any_password"
             }
         }
-        const httpResponse = sut.handle(httpRequest)
+        const httpResponse: HttpResponse = sut.handle(httpRequest)
         expect(httpResponse.statusCode).toBe(400)
         expect(httpResponse.body).toEqual(new Error('Missing param: email'))
     })
