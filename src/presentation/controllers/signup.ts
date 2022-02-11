@@ -13,6 +13,7 @@ export class SignUpController implements Controller {
 
   constructor(emailValidator: EmailValidator, addAccount: AddAccount) {
     this.emailValidator = emailValidator;
+    this.addAccount = addAccount;
   }
 
   handle(httpRequest: HttpRequest): HttpResponse {
@@ -39,13 +40,13 @@ export class SignUpController implements Controller {
       if (!isValid) {
         return badRequest(new InvalidParamError('email'));
       }
-
+    
       this.addAccount.add({
         name,
         email,
         password
       })
-      
+
     } catch (error) {
       return serverError();
     }
