@@ -212,4 +212,24 @@ describe('Signup', () => {
     expect(httpResponse.statusCode).toBe(500);
     expect(httpResponse.body).toEqual(new ServerError());
   });
+  test('Should return 200 if addAccount sucessfully', () => {
+    const { sut } = makeSup();
+
+    const httpRequest = {
+      body: {
+        name: 'any',
+        password: 'any_password',
+        email: 'any_email@mail.com',
+        passwordConfirmation: 'any_password'
+      }
+    };
+    const httpResponse: HttpResponse = sut.handle(httpRequest);
+    expect(httpResponse.statusCode).toBe(200);
+    expect(httpResponse.body).toEqual({
+      id: 'valid_id',
+      name: 'valid_name',
+      email: 'valid_email',
+      password: 'valid_password'
+    });
+  });
 });
