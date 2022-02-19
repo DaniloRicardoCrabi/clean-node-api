@@ -1,5 +1,4 @@
 import bcrypt from 'bcrypt'
-import { resolve } from 'path/posix'
 import {BcryptAdapter} from './bcrypt-adapter'
 
 jest.mock('bcrypt', () => ({
@@ -26,4 +25,6 @@ describe('Bcrypt Adapter', () => {
         const hash = await sut.encrypt('any_value')
         expect(hash).toBe(hash)
     })
+
+ 
 })
